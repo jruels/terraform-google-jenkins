@@ -14,12 +14,18 @@
  * limitations under the License.
  */
 
+#variable "jenkins_username" {
+#  description = "jenkins user"
+#  default     = "user"
+
 variable "project_id" {
   description = "The project ID to deploy to"
+  default     = "jscloud-shell"
 }
 
 variable "region" {
   description = "The region to deploy to"
+  default     = "us-west2"
 }
 
 variable "create_firewall_rules" {
@@ -50,14 +56,17 @@ variable "jenkins_boot_disk_source_image_project" {
 
 variable "jenkins_instance_zone" {
   description = "The zone to deploy the Jenkins VM in"
+  default     = "us-west2-a"
 }
 
 variable "jenkins_instance_network" {
   description = "The GCP network to deploy the Jenkins VM in. The firewall rules will be created in the project which hosts this network."
+  default     = "default"
 }
 
 variable "jenkins_instance_subnetwork" {
   description = "The GCP subnetwork to deploy the Jenkins VM in"
+  default     = "default"
 }
 
 variable "jenkins_instance_tags" {
@@ -74,7 +83,7 @@ variable "jenkins_instance_additional_metadata" {
 
 variable "jenkins_initial_password" {
   description = "The initial password to protect Jenkins logins with. Defaults to a random 8-character alphanumeric string. This may not contain special characters."
-  default     = ""
+  default     = "password"
 }
 
 variable "jenkins_instance_access_cidrs" {
@@ -95,6 +104,7 @@ variable "jenkins_service_account_display_name" {
 
 variable "jenkins_workers_project_id" {
   description = "The GCP project to deploy Jenkins workers within"
+  default     = "jscloud-shell"
 }
 
 variable "jenkins_workers_instance_cap" {
@@ -114,11 +124,12 @@ variable "jenkins_workers_name_prefix" {
 
 variable "jenkins_workers_region" {
   description = "The name of the region into which to deploy Jenkins workers"
+  default     = "us-west2"
 }
 
 variable "jenkins_workers_zone" {
   description = "The name of the zone into which to deploy Jenkins workers"
-  default     = "us-east4-b"
+  default     = "us-west2-a"
 }
 
 variable "jenkins_workers_machine_type" {
@@ -169,6 +180,7 @@ variable "jenkins_workers_boot_disk_source_image_project" {
 
 variable "jenkins_workers_network" {
   description = "The URL of the network to deploy Jenkins workers into"
+  default     = "default"
 }
 
 variable "jenkins_workers_subnetwork" {
